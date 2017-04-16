@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  jenkins-master:
+    image: jsdidierlaurent/rpi-jenkins-with-plugins
+    ports:
+      - 8080:8080
+    volumes:
+      - jenkins-master:/var/jenkins_home
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+volumes:
+  jenkins-master:
+    driver: local
