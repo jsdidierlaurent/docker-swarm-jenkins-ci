@@ -6,12 +6,15 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - jenkins-master:/var/jenkins_home
+      - jenkins-master-home:/var/jenkins_home
+      - jenkins-master-cgroup:/sys/fs/cgroup
     deploy:
       placement:
         constraints:
           - node.role == manager
 
 volumes:
-  jenkins-master:
+  jenkins-master-home:
+    driver: local
+  jenkins-master-cgroup:
     driver: local
