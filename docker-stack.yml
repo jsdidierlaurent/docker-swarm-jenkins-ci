@@ -2,19 +2,16 @@ version: '3'
 
 services:
   jenkins-master:
-    image: jsdidierlaurent/rpi-jenkins-with-plugins
+    image: jsdidierlaurent/jenkins-with-plugins
     ports:
       - 8080:8080
     volumes:
       - jenkins-master-home:/var/jenkins_home
-      - jenkins-master-cgroup:/sys/fs/cgroup
     deploy:
       placement:
         constraints:
-          - node.role == manager
+          - node.hostname == moby
 
 volumes:
   jenkins-master-home:
-    driver: local
-  jenkins-master-cgroup:
     driver: local
