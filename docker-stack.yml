@@ -2,7 +2,7 @@ version: '3'
 
 services:
   jenkins-master:
-    image: jsdidierlaurent/jenkins-with-plugins
+    image: jsdidierlaurent/rpi-jenkins
     ports:
       - 8080:8080
     volumes:
@@ -10,7 +10,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.hostname == moby
+          - node.hostname == vi.rpi.lan
 
 volumes:
   jenkins-master-home:
