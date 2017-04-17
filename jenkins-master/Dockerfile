@@ -1,4 +1,4 @@
-FROM jsdidierlaurent/rpi-jenkins
+FROM jenkins:2.46.1-alpine
 LABEL maintainer "Jean-Sébastien Didierlaurent <js.didierlaurent@gmail.com>"
 
 COPY plugins.txt /usr/share/jenkins/ref/

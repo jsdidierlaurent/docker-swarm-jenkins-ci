@@ -1,2 +1,0 @@
-swarm:3.3
-blueocean:1.0.0-rc3

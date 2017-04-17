@@ -2,15 +2,13 @@ version: '3'
 
 services:
   jenkins-master:
-    image: jsdidierlaurent/rpi-jenkins
+    build: .
+    image: jsdidierlaurent/jenkins
     ports:
       - 8080:8080
+      - 50000:50000
     volumes:
       - jenkins-master-home:/var/jenkins_home
-    deploy:
-      placement:
-        constraints:
-          - node.hostname == vi.rpi.lan
 
 volumes:
   jenkins-master-home:
