@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  jenkins-master:
+    image: jsdidierlaurent/jenkins
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - jenkins-master-home:/var/jenkins_home
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+  jenkins-slave:
+    image: csanchez/jenkins-swarm-slave
+    command: 
+      -master http://192.168.113.152:8080
+      -username slave
+      -password slave
+    volumes:
+      - jenkins-slave-home:/home/jenkins-slave
+    deploy:
+      mode: replicated
+      replicas: 5
+
+volumes:
+  jenkins-master-home:
+    driver: local
+  jenkins-slave-home:
+    driver: local
