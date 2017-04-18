@@ -18,6 +18,7 @@ services:
       -master http://192.168.113.152:8080
       -username slave
       -password slave
+      -executors 1
     volumes:
       - jenkins-slave-home:/home/jenkins-slave
     deploy:
