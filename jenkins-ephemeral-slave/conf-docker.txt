@@ -1,0 +1,23 @@
+cat /etc/systemd/system/docker.service.d/service-overrides.conf 
+[Service]
+EnvironmentFile=-/etc/default/docker
+ExecStart=
+ExecStart=/usr/bin/docker daemon $DOCKER_OPTS
+
+
+
+
+root@jsdlaurent-linux:~# cat /etc/default/docker 
+# Docker Upstart and SysVinit configuration file
+
+# Customize location of Docker binary (especially for development testing).
+#DOCKERD="/usr/local/bin/dockerd"
+
+# Use DOCKER_OPTS to modify the daemon startup options.
+DOCKER_OPTS="--dns 192.168.11.247 --dns 192.168.11.246 -H tcp://192.168.113.152:2376 -H unix:///var/run/docker.sock --tlsverify --tlscacert=/etc/docker/ssl/ca.pem --tlscert=/etc/docker/ssl/server-cert.pem --tlskey=/etc/docker/ssl/server-key.pem --ip-forward=true --iptables=true --ip-masq=true"
+
+# If you need Docker to use an HTTP proxy, it can also be specified here.
+#export http_proxy="http://127.0.0.1:3128/"
+
+# This is also a handy place to tweak where Docker's temporary files go.
+#export DOCKER_TMPDIR="/mnt/bigdrive/docker-tmp"
