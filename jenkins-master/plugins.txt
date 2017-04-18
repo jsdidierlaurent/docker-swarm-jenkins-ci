@@ -77,7 +77,7 @@ ssh-credentials 1.13
 ssh-slaves 1.17
 structs 1.6
 subversion 2.7.2
-swarm 3.3
+swarm 3.4
 timestamper 1.8.8
 token-macro 2.1
 variant 1.1
