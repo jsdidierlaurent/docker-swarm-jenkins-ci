@@ -3,6 +3,8 @@ version: '3'
 services:
   jenkins-master:
     image: jsdidierlaurent/jenkins
+    environment:
+      - JAVA_OPTS=-Xmx2048m -XX:MaxPermSize=512m -Djenkins.slaves.DefaultJnlpSlaveReceiver.disableStrictVerification=true
     ports:
       - 8080:8080
       - 50000:50000

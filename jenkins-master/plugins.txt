@@ -22,6 +22,7 @@ blueocean-web 1.0.1
 bouncycastle-api 2.16.1
 branch-api 2.0.8
 build-timeout 1.18
+cloud-stats 0.11
 cloudbees-folder 6.0.3
 credentials 2.1.13
 credentials-binding 1.11
@@ -94,3 +95,4 @@ workflow-scm-step 2.4
 workflow-step-api 2.9
 workflow-support 2.14
 ws-cleanup 0.32
+yet-another-docker-plugin 0.1.0-rc35
