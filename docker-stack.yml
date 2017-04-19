@@ -17,8 +17,6 @@ services:
     image: jsdidierlaurent/jenkins-nginx
     ports:
       - "80:80"
-    links:
-      - jenkins-master:jenkins-master
 
   jenkins-slave:
     image: jsdidierlaurent/jenkins-regular-slave-maven
