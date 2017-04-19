@@ -21,7 +21,7 @@ services:
   jenkins-slave:
     image: jsdidierlaurent/jenkins-regular-slave-maven
     command: 
-      -master http://192.168.113.152:8080
+      -master http://jenkins-master:8080
       -username slave
       -password slave
       -executors 1
