@@ -15,20 +15,23 @@ services:
         constraints: [node.role == manager]
 
   jenkins-slave:
-    image: csanchez/jenkins-swarm-slave
+    image: jsdidierlaurent/jenkins-regular-slave-maven
     command: 
       -master http://192.168.113.152:8080
       -username slave
       -password slave
       -executors 1
     volumes:
-      - jenkins-slave-home:/home/jenkins-slave
+      - jenkins-slave-cache:$HOME/.jenkins
+      - jenkins-slave-m2:$HOME/jenkins/.m2
     deploy:
       mode: replicated
-      replicas: 5
+      replicas: 3
 
 volumes:
   jenkins-master-home:
     driver: local
-  jenkins-slave-home:
+  jenkins-slave-cache:
+    driver: local
+  jenkins-slave-m2:
     driver: local
