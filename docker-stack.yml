@@ -6,13 +6,19 @@ services:
     environment:
       - JAVA_OPTS=-Xmx2048m -XX:MaxPermSize=512m -Djenkins.slaves.DefaultJnlpSlaveReceiver.disableStrictVerification=true
     ports:
-      - 8080:8080
       - 50000:50000
     volumes:
       - jenkins-master-home:/var/jenkins_home
     deploy:
       placement:
         constraints: [node.role == manager]
+  
+  jenkins-nginx:
+    image: jsdidierlaurent/jenkins-nginx
+    ports:
+      - "80:80"
+    links:
+      - jenkins-master:jenkins-master
 
   jenkins-slave:
     image: jsdidierlaurent/jenkins-regular-slave-maven
