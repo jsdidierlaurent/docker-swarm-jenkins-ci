@@ -1,5 +1,5 @@
 build-jenkins-slave:
-    @./build-and-push.sh base/jenkins-slave
+	@./build-and-push.sh base/jenkins-slave
 build-base: build-jenkins-slave
 
 build-jenkins-ephemeral-slave:
