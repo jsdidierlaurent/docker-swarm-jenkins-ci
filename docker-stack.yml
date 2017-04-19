@@ -22,8 +22,8 @@ services:
       -password slave
       -executors 1
     volumes:
-      - jenkins-slave-cache:$HOME/.jenkins
-      - jenkins-slave-m2:$HOME/jenkins/.m2
+      - jenkins-slave-cache:/home/jenkins/.jenkins
+      - jenkins-slave-m2:/home/jenkins/.m2
     deploy:
       mode: replicated
       replicas: 3
