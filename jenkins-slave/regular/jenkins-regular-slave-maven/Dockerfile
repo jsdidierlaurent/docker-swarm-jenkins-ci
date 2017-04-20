@@ -13,6 +13,9 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && rm -f /tmp/apache-maven.tar.gz \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
+RUN mkdir -p "$HOME/.m2" && \
+  chown ${SLAVE_USERNAME} "$HOME/.m2"
+
 USER ${SLAVE_USERNAME}
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$HOME/.m2"
